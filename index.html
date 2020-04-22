@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>SPOWEB KX アコーディオン</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <script src="./jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          decodeURIComponent(
+            '%3Cscript src="https://daiko.smair.jp/spoweb/spoaccordion/jquery.min.js"%3E%3C/script%3E'
+          )
+        );
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn3.devexpress.com/jslib/19.2.7/css/dx.common.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn3.devexpress.com/jslib/19.2.7/css/dx.light.css"
+    />
+    <script src="https://cdn3.devexpress.com/jslib/19.2.7/js/dx.all.js"></script>
+    <script src="https://daiko.smair.jp/spoweb/spoaccordion/underscore-1.5.1.min.js"></script>
+    <script>
+      var accordionItems = [
+        {
+          kx_creator: "richard.huh",
+          kx_industry: "メーカー",
+          kx_kind: "食料品・化粧品・アパレル・日用品",
+          kx_subject: "ソフトウェア開発のナレッジ・エクスチェンジ - 製造業",
+          kxid: "richard.huh8134gbie",
+          reg_date: "2019/03/09",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/richard.huh8134gbie.pdf"
+        },
+        {
+          kx_creator: "richard.huh",
+          kx_industry: "IT・通信",
+          kx_kind: "SIer",
+          kx_subject: "ソフトウェア開発の知識トランスファー SIer",
+          kxid: "richard.huhvf3b8eyo",
+          reg_date: "2019/03/12",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/richard.huhvf3b8eyo.docx"
+        },
+        {
+          kx_creator: "shinji.wakano",
+          kx_industry: "メーカー",
+          kx_kind: "電気・電子・機械・半導体",
+          kx_subject: "DXプロジェクトケーススタディー -ハイテック企業-",
+          kxid: "shinji.wakanop7k29g0j",
+          reg_date: "2019/03/13",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/shinji.wakanop7k29g0j.pptx"
+        },
+        {
+          kx_creator: "yuuji.funayama",
+          kx_industry: "金融",
+          kx_kind: "生命保険",
+          kx_subject: "販売データ機械学習ケースフィジビリティー",
+          kxid: "yuuji.funayama74bhputj",
+          reg_date: "2019/03/13",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/yuuji.funayama74bhputj.pptx"
+        },
+        {
+          kx_creator: "shinji.wakano",
+          kx_industry: "IT・通信",
+          kx_kind: "ソフトウェア",
+          kx_subject: "ITV部会",
+          kxid: "shinji.wakanok7eg2xw6",
+          reg_date: "2019/03/15",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/shinji.wakanok7eg2xw6.pptx"
+        },
+        {
+          kx_creator: "shinji.wakano",
+          kx_industry: "IT・通信",
+          kx_kind: "インターネット",
+          kx_subject: "ITV部会",
+          kxid: "shinji.wakanowykb21na",
+          reg_date: "2019/03/15",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/shinji.wakanowykb21na.pptx"
+        },
+        {
+          kx_creator: "richard.huh",
+          kx_industry: "メーカー",
+          kx_kind: "電気・電子・機械・半導体",
+          kx_subject: "製造業　需要予測　生産機器",
+          kxid: "richard.huhtzh7mcik",
+          reg_date: "2019/03/19",
+          file_location:
+            "https://daiko.smair.jp/reqfiles/kem/richard.huhtzh7mcik.docx"
+        }
+      ];
+    </script>
+    <style>
+      #accordion h1 {
+        font-size: 20px;
+      }
+
+      #accordion h1,
+      #accordion p {
+        margin: 0;
+      }
+
+      .dx-theme-material
+        #accordion
+        .dx-accordion-item-opened
+        .dx-accordion-item-title {
+        display: flex;
+      }
+
+      .dx-theme-material #accordion .dx-accordion-item-opened h1 {
+        align-self: center;
+      }
+
+      .options,
+      .selected-data {
+        padding: 20px;
+        background-color: rgba(191, 191, 191, 0.15);
+        margin-top: 20px;
+      }
+
+      .selected-data {
+        position: relative;
+        height: 36px;
+      }
+
+      .selected-data > .caption {
+        position: relative;
+        top: 5px;
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 115%;
+      }
+
+      .selected-data > .dx-widget {
+        position: absolute;
+        left: 140px;
+        right: 20px;
+        top: 20px;
+      }
+
+      .options > .caption {
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .option {
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      $(function() {
+        DevExpress.setTemplateEngine("underscore");
+
+        var tagBox = $("#tagbox")
+          .dxTagBox({
+            dataSource: accordionItems,
+            displayExpr: "kx_subject",
+            disabled: true,
+            value: [accordionItems[0]],
+            onValueChanged: function(e) {
+              accordion.option("selectedItems", e.value);
+            }
+          })
+          .dxTagBox("instance");
+
+        var accordion = $("#accordion-container")
+          .dxAccordion({
+            dataSource: accordionItems,
+            animationDuration: 300,
+            collapsible: false,
+            multiple: false,
+            selectedItems: [accordionItems[0]],
+            itemTitleTemplate: $("#title"),
+            itemTemplate: $("#customer"),
+            onSelectionChanged: function(e) {
+              tagBox.option("value", e.component.option("selectedItems"));
+            }
+          })
+          .dxAccordion("instance");
+
+        $("#slider").dxSlider({
+          min: 0,
+          max: 1000,
+          value: 300,
+          label: { visible: true },
+          tooltip: {
+            enabled: true,
+            position: "bottom"
+          },
+          onValueChanged: function(e) {
+            accordion.option("animationDuration", e.value);
+          }
+        });
+
+        $("#multiple-enabled").dxCheckBox({
+          text: "複数選択",
+          onValueChanged: function(e) {
+            accordion.option("multiple", e.value);
+            tagBox.option("disabled", !e.value);
+            tagBox.option("value", accordion.option("selectedItems"));
+          }
+        });
+
+        $("#collapsible-enabled").dxCheckBox({
+          text: "折り畳み",
+          onValueChanged: function(e) {
+            accordion.option("collapsible", e.value);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body class="dx-viewport">
+    <div class="demo-container">
+      <div id="accordion">
+        <div id="accordion-container"></div>
+
+        <div class="selected-data">
+          <span class="caption">選択アイテム</span>
+          <div id="tagbox"></div>
+        </div>
+
+        <div class="options">
+          <div class="caption">オプション</div>
+          <div class="option">
+            <div id="multiple-enabled"></div>
+          </div>
+          <div class="option">
+            <div id="collapsible-enabled"></div>
+          </div>
+          <div class="option">
+            <span>アニメーション（ms）</span>
+            <div id="slider"></div>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/html" id="title">
+        <h1><%= kx_subject%></h1>
+      </script>
+
+      <script type="text/html" id="customer">
+        <div class="accodion-item">
+        <div>
+        <p>
+        <b>業界：<%= kx_industry%></b>
+        (<span><%= kx_kind%></span>)
+        </p>
+        <p>
+        <span>登録日：<%= reg_date%></span><br>
+        <span>作成者：<%= kx_creator%></span>
+        </p>
+        </div>
+        <div>
+        <p>
+        ID: <b><%= kxid%></b>
+        </p>
+        <p>
+        業界: <b><%= kx_kind%></b>
+        </p>
+        <p>
+        ドキュメント:
+        <a href="<%= file_location%>" target="_blank">
+        <%= kx_subject%>
+        </a>
+        </p>
+        </div>
+        </div>
+      </script>
+    </div>
+  </body>
+</html>
